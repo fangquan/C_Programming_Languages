@@ -1,44 +1,42 @@
-#include <stdio.h>
-#include <stdlib.h>
-// This is the test program, for the C mini course
+#include<stdio.h>
+# define LOWER 0
+# define UPPER 300
+# define STEP 20
+# define lower -20
+# define upper 120
+# define step  10
 
-int main(int argc, char **argv)
+main()
 {
-    int a = 3,b = 4;
-    printf ("a == %d, b == %d\n",a,b);
-	printf ("a is located at %p, b is located at %p\n",&a,&b);
-    int *myptr = &a;
-    printf("myptr points to %p \n",myptr);
-    printf("the value of myptr is %d \n",*myptr);
-    
-    // pointers and arrays
-    int array[10];
-    int ar;
-    printf("The starting address of array is %p \n",array);
-    printf("The address of ar is %p \n",&ar);
-    
-    // malloc/free ???
-    int *myint = (int*) malloc(sizeof(int));
-    *myint = 5;
-    printf ("%lu \n", sizeof(int));
-    printf ("%p \n", myint);
-    printf ("%d \n", *myint);
-    
-    free(myint);
-    printf ("%p \n", myint);
-    
-    // dynamic array
-    int n = rand() % 100;
-    int *array1 = (int*) malloc (n*sizeof(int));
-    int i;
-    for (i = 0; i < n; i++)
-    {
-        array1[i] = 0;
-    }
-    free(array1);
-    array1 = NULL;
-    
-    
-    return 0;
+
+	printf("Hello World!\t\n");
+	int fahr;
+	// 'for' loop initial declaration used outside C99 mode
+	//  initial declaration can't be in 'for' loop
+	
+	printf ("%3s,%6s\n","F","C");
+	for ( fahr = LOWER;fahr<=UPPER;fahr += STEP)
+	{
+		printf ("%3d,%6.1f\n",fahr,(5.0/9.0)*(fahr-32));		
+	}
+
+	int cel;
+	printf ("%3s,%6s\n","C","F");
+        for ( cel = lower;cel<=upper;cel += step)
+        {
+                printf ("%3d,%6.1f\n",cel,(9.0/5.0)*cel+32);
+        }
+
+	// copy files
+	
+	char c;
+	c = getchar();
+	while (c != EOF )
+	{
+		putchar (c);
+		c = getchar();
+	}
+	printf ("\n");
+
 }
 
